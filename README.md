@@ -1,98 +1,79 @@
 # Spellculator
 
-An educational action game built with **C++** and **[raylib](https://www.raylib.com/)**. You play a wizard who defeats slime enemies by solving math problems in timed battles, while dodging the fireballs they shoot at you. The difficulty rises with every level.
+A math-based action game built with **C++** and **raylib**. Play as a wizard, fight slime enemies, and solve math questions during timed battles. The difficulty increases as you progress through the levels.
 
-![Main menu](screenshots/menu.png)
+![Gameplay](screenshots/gameplay.png)
 
 ## Features
 
-- Real-time movement with animated sprites (wizard and slimes)
-- Timed math battles (10 seconds per question)
-- Progressive difficulty:
-  - **Levels 1-2:** addition and subtraction
-  - **Level 3:** simple algebra (`X + 7 = 15`)
-  - **Level 4+:** multiplication, division, and algebra mixed, with faster enemies
-- Health bar, scoring, and level progression
-- Menu, instructions, credits, and audio settings (separate music and SFX volume)
-- Game state machine: menu, playing, question, victory, game over
+- **Player movement:** Move around the game world with animated wizard and slime sprites.
+- **Math battles:** Solve math questions within a 10-second time limit to defeat enemies.
+- **Progressive difficulty:** Questions start with addition and subtraction, then introduce algebra, multiplication, and division in later levels.
+- **Combat system:** Dodge fireballs while managing your health and lives.
+- **Scoring and progression:** Clear enemies to advance through levels.
+- **Game settings:** Includes a main menu, instructions, credits, and separate music and sound effect controls.
 
-## Screenshots
+## Tech Stack
 
-| Gameplay | Math battle |
-|---|---|
-| ![Gameplay](screenshots/gameplay.png) | ![Math battle](screenshots/battle.png) |
+- **Language:** C++
+- **Graphics Library:** raylib
+- **Build System:** CMake
 
-| Level clear | Game over |
-|---|---|
-| ![Level clear](screenshots/victory.png) | ![Game over](screenshots/game_over.png) |
-
-## How to play
+## How to Play
 
 | Action | Control |
 |---|---|
 | Move the wizard | Arrow keys |
-| Start a math battle | Touch a slime |
-| Answer a question | Type digits, press **Enter** (Backspace to delete) |
-| Adjust music / SFX volume | Left-Right / Up-Down arrows in Audio Settings |
+| Start a battle | Touch a slime |
+| Enter an answer | Number keys + Enter |
+| Delete a digit | Backspace |
+| Adjust audio settings | Arrow keys |
 
-Wrong answers and running out of time cost one life. Fireball hits cost one life too. You have 3 lives. Clear all the slimes to move on to the next level.
+You start with 3 lives. Wrong answers, running out of time, and getting hit by fireballs each cost one life. Clear all enemies to move to the next level.
 
-## Build and run
+## Getting Started
 
-You need a C++ compiler and [CMake](https://cmake.org/download/) (3.16+). raylib is downloaded and built automatically the first time, so you don't need to install it yourself.
+### Prerequisites
 
-```bash
-git clone https://github.com/YOUR-USERNAME/math-wizard-adventure.git
-cd math-wizard-adventure
-cmake -B build
-cmake --build build --config Release
-```
+- A C++ compiler
+- CMake 3.16 or higher
 
-The `assets/` folder is copied next to the executable during the build:
+### Installation
 
-- **Windows (Visual Studio generator):** run `build\Release\MathWizard.exe`
-- **Linux / macOS / MinGW:** run `./build/MathWizard`
+1. Clone the repository:
 
-**Visual Studio users:** use *File > Open > Folder* on the project folder; Visual Studio detects `CMakeLists.txt` and builds it for you.
+   ```bash
+   git clone https://github.com/YOUR-USERNAME/math-wizard-adventure.git
+   ```
 
-**Linux note:** raylib needs a few system packages first, e.g. on Ubuntu/Debian:
-`sudo apt install build-essential cmake libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libgl1-mesa-dev`
+2. Navigate to the project folder:
 
-## Project structure
+   ```bash
+   cd math-wizard-adventure
+   ```
 
-```
-math-wizard-adventure/
-├── main.cpp          # all game code
-├── CMakeLists.txt    # build configuration (downloads raylib)
-├── assets/           # sprites, backgrounds, music, sound effects
-├── screenshots/      # images used in this README
-└── README.md
-```
+3. Configure and build the project:
 
-## What I learned
+   ```bash
+   cmake -B build
+   cmake --build build --config Release
+   ```
 
-- Structuring a game with a state machine (`enum GameState`)
-- Sprite sheet animation using source and destination rectangles
-- Collision detection (rectangles and circles) and basic projectile aiming with vector math
-- Generating difficulty-scaled questions, including guaranteeing whole-number division answers
-- Handling real-time keyboard input and timers
+raylib is downloaded and built automatically during the first build.
 
-## Possible improvements
+### Running the Game
 
-- Split `main.cpp` into separate files (player, enemies, UI, questions)
-- High score saving
-- More enemy types and a boss level
-- Sound effects for correct and wrong answers
+- **Windows:** `build\Release\MathWizard.exe`
+- **Linux/macOS/MinGW:** `./build/MathWizard`
+
+Visual Studio users can also open the project folder using **File → Open → Folder**. CMake will be detected automatically.
 
 ## Credits
 
 - Game design and code: **Hania Qaisar**
-- Built with [raylib](https://www.raylib.com/)
-- Sprites (wizard, slime): **Adriano Verissimo**(https://adrverissimo.itch.io/slime-monster-pixel-art)
-- Backgrounds: Generated using AI myself
-- Music (`bg_music.mp3`) and sound effect (`button.ogg`): "Enchanted Fantasy" by Sonican from Pixabay
-- Text uses raylib's built-in default font
+- Wizard and slime sprites: [Adriano Verissimo](https://adrverissimo.itch.io/slime-monster-pixel-art)
+- Backgrounds: AI-generated
+- Music and sound effects: "Enchanted Fantasy" by Sonican from Pixabay
+- Font: raylib default font
 
-## Context
-
-Semester project for CS-110 Fundamentals of Computer Programming.
+Built as a semester project for **CS-110 Fundamentals of Computer Programming**.
