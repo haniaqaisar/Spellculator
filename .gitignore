@@ -1,0 +1,23 @@
+# Compiled output
+*.exe
+*.o
+*.obj
+*.out
+MathWizard
+build/
+bin/
+
+# Visual Studio
+.vs/
+Debug/
+Release/
+x64/
+*.user
+*.sdf
+*.ipch
+
+# Other IDEs / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
